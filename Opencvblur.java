@@ -31,32 +31,32 @@ public class Opencvblur {
 		Mat dst=new Mat();
 		src=Imgcodecs.imread(s);
 		Size ksize = new Size(45, 45);
-        Point anchor=new Point(20,30);
-        int borderType=Core.BORDER_DEFAULT;
+        	Point anchor=new Point(20,30);
+        	int borderType=Core.BORDER_DEFAULT;
 
 		/* Applying a basic blur */
-        Imgproc.blur(src, dst, ksize, anchor, borderType);
-        Imgcodecs.imwrite("E:/blog/featuredblurred.jpg", dst);
+	        Imgproc.blur(src, dst, ksize, anchor, borderType);
+        	Imgcodecs.imwrite("E:/blog/featuredblurred.jpg", dst);
 
 		/* Applying a Gaussian Blur */
-        Imgproc.GaussianBlur(src, dst, ksize, 0);
-        Imgcodecs.imwrite("E:/blog/featuredGaussian.jpg",dst);
+        	Imgproc.GaussianBlur(src, dst, ksize, 0);
+        	Imgcodecs.imwrite("E:/blog/featuredGaussian.jpg",dst);
 
 		/* Applying a Median Blur */
-        Imgproc.medianBlur(src, dst, 15);
-        Imgcodecs.imwrite("E:/blog/featuredmedian.jpg",dst);
+        	Imgproc.medianBlur(src, dst, 15);
+        	Imgcodecs.imwrite("E:/blog/featuredmedian.jpg",dst);
 
-        MatOfByte matofbyte=new MatOfByte();
-        Imgcodecs.imencode(".jpg", dst, matofbyte);
-        byte[] bt=matofbyte.toArray();
-        InputStream in=new ByteArrayInputStream(bt);
-        BufferedImage bi=ImageIO.read(in);
+        	MatOfByte matofbyte=new MatOfByte();
+        	Imgcodecs.imencode(".jpg", dst, matofbyte);
+        	byte[] bt=matofbyte.toArray();
+        	InputStream in=new ByteArrayInputStream(bt);
+        	BufferedImage bi=ImageIO.read(in);
 		
 		/* Setting up JFrame for output image */
-        JFrame j2=new JFrame();
-        j2.getContentPane().add(new JLabel(new ImageIcon(bi)));
-        j2.pack();
-        j2.setVisible(true);
+        	JFrame j2=new JFrame();
+        	j2.getContentPane().add(new JLabel(new ImageIcon(bi)));
+        	j2.pack();
+        	j2.setVisible(true);
 	}
 
 }
